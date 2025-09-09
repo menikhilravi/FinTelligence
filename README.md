@@ -78,7 +78,7 @@ python main.py
 
 While the data collector is running (or after it has run at least once), open a new terminal (with the virtual environment activated) and run the following command:
 
-streamlit run app.py
+streamlit run ui.py
 
 This will launch the interactive dashboard in a new tab in your web browser. You can use the search box or dropdown in the sidebar to explore the sentiment for different tickers.
 
