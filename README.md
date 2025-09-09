@@ -23,3 +23,105 @@ Risks and Important Disclaimers
     Garbage In, Garbage Out: The accuracy of your output is entirely dependent on the quality of your input data. Sarcasm, irony, and complex financial jargon are notoriously difficult for algorithms to understand.
 
     Legal & Financial Advice: This application is for informational purposes only and should never be considered financial advice. All investment decisions carry risk.
+
+
+Features
+
+    News Data Acquisition: Fetches news from Yahoo Finance RSS feeds.
+
+    Flexible Sentiment Analysis: Supports two different sentiment analysis models:
+
+        VADER: A fast, lexicon-based model great for general-purpose text.
+
+        FinBERT (Commented out): A powerful, domain-specific transformer model trained on financial text for higher accuracy (requires more setup).
+
+    Local Data Storage: Uses SQLite for a simple, serverless, and robust local database.
+
+    Interactive Dashboard: A web-based UI built with Streamlit to visualize and explore the sentiment data.
+
+    Automated & Configurable: Runs automatically on a schedule and is easily configured via the config.py file.
+
+Project Structure
+
+.
+├── config.py               # Configuration file for tickers, API keys, etc.
+├── data_acquisition.py     # Module for fetching data from news feeds.
+├── sentiment_analysis.py   # Module for text preprocessing and sentiment analysis.
+├── database.py             # Module for all SQLite database interactions.
+├── main.py                 # Main entry point to run the data collection pipeline.
+├── app.py                  # The Streamlit UI dashboard application.
+├── requirements.txt        # Lists all Python package dependencies.
+└── README.md               # This file.
+
+Setup & Installation
+
+    Clone the Repository
+
+    git clone <repository_url>
+    cd <repository_name>
+
+    Create a Virtual Environment
+    It's highly recommended to use a virtual environment to manage dependencies.
+
+    python -m venv venv
+    source ven/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+    Install Dependencies
+    Install all the required packages from requirements.txt.
+
+    pip install -r requirements.txt
+
+Usage
+
+The project has two main parts: the data collection script and the UI dashboard.
+1. Run the Data Collector
+
+First, you need to collect some data. Run the main.py script from your terminal. This will fetch headlines, analyze them, and save them to sentiments.db. You can leave this running in a terminal to continuously collect data.
+
+python main.py
+
+2. Launch the UI Dashboard
+
+While the data collector is running (or after it has run at least once), open a new terminal (with the virtual environment activated) and run the following command:
+
+streamlit run app.py
+
+This will launch the interactive dashboard in a new tab in your web browser. You can use the search box or dropdown in the sidebar to explore the sentiment for different tickers.
+Viewing the Data
+
+Besides the UI, you can inspect the collected data directly by using any SQLite database browser to open the sentiments.db file. This will allow you to see the sentiments table and run queries on your data.
+
+
+
+-- UI & Advanced Features: The "Next Level" -- 
+
+With the data pipeline built, the next step is to visualize the results and consider advanced features to make the tool even more powerful. This section provides an example visualization and ideas for future development.
+
+
+
+UI Options
+
+For a rich user experience, an interactive web dashboard is recommended. The **Streamlit** library is perfect for this, allowing you to build a functional UI with just Python.
+
+Key UI Components:
+
+    Dropdown to select stocks
+    Interactive charts with Plotly
+    Color-coded cards for headlines
+    Auto-refreshing data
+
+
+
+Advanced Features
+
+Once the MVP is functional, consider these enhancements to improve its capabilities and accuracy.
+
+Potential Upgrades:
+
+    Add more data sources (Reddit, SEC filings)
+    Use Named Entity Recognition (NER) for accuracy
+    Implement an automated alerting system
+    Backtest sentiment against historical prices
+
+
+
