@@ -4,15 +4,15 @@ Value Proposition
 
     Core Problem: Financial markets are flooded with unstructured data (news, social media). It's impossible for a human to read and process it all in real-time to gauge market sentiment.
 
-    Your Solution: This app will automate the collection and analysis of this data, aggregating it into a simple, actionable sentiment score (e.g., Positive, Negative, Neutral) for specific stocks. This provides a data-driven edge for making investment decisions.
+    My Solution: This app will automate the collection and analysis of this data, aggregating it into a simple, actionable sentiment score (e.g., Positive, Negative, Neutral) for specific stocks. This provides a data-driven edge for making investment decisions.
 
 Key Features for a Minimum Viable Product (MVP)
 
     Stock Ticker Input: A simple interface to enter a stock symbol (e.g., AAPL, TSLA, GOOG).
 
-    Sentiment Score: A clear, real-time sentiment score (e.g., a number from -1 to 1, or a label like "Bullish").
+    Sentiment Score: A clear, real-time sentiment score (e.g., "Bullish").
 
-    Source Tracking: Display the headlines and tweets that influenced the score, so you can verify the data and avoid blind trust in the algorithm. This directly addresses your "no hallucination" requirement by grounding the sentiment in factual, verifiable sources.
+    Source Tracking: Display the headlines and tweets that influenced the score, so I can verify the data and avoid blind trust in the algorithm. This directly addresses "no hallucination" requirement by grounding the sentiment in factual, verifiable sources.
 
     Historical View: A simple chart showing how the sentiment score for a stock has changed over the last 24-48 hours.
 
@@ -42,7 +42,6 @@ Features
     Automated & Configurable: Runs automatically on a schedule and is easily configured via the config.py file.
 
 Project Structure
-
 .
 ├── config.py               # Configuration file for tickers, API keys, etc.
 ├── data_acquisition.py     # Module for fetching data from news feeds.
@@ -56,19 +55,14 @@ Project Structure
 Setup & Installation
 
     Clone the Repository
-
     git clone <repository_url>
     cd <repository_name>
 
     Create a Virtual Environment
-    It's highly recommended to use a virtual environment to manage dependencies.
-
     python -m venv venv
     source ven/bin/activate  # On Windows, use `venv\Scripts\activate`
 
     Install Dependencies
-    Install all the required packages from requirements.txt.
-
     pip install -r requirements.txt
 
 Usage
@@ -87,41 +81,26 @@ While the data collector is running (or after it has run at least once), open a 
 streamlit run app.py
 
 This will launch the interactive dashboard in a new tab in your web browser. You can use the search box or dropdown in the sidebar to explore the sentiment for different tickers.
-Viewing the Data
 
-Besides the UI, you can inspect the collected data directly by using any SQLite database browser to open the sentiments.db file. This will allow you to see the sentiments table and run queries on your data.
 
 
 
 -- UI & Advanced Features: The "Next Level" -- 
 
-With the data pipeline built, the next step is to visualize the results and consider advanced features to make the tool even more powerful. This section provides an example visualization and ideas for future development.
+Advanced Key UI Components:
 
-
-
-UI Options
-
-For a rich user experience, an interactive web dashboard is recommended. The **Streamlit** library is perfect for this, allowing you to build a functional UI with just Python.
-
-Key UI Components:
-
-    Dropdown to select stocks
     Interactive charts with Plotly
     Color-coded cards for headlines
     Auto-refreshing data
 
 
-
 Advanced Features
 
-Once the MVP is functional, consider these enhancements to improve its capabilities and accuracy.
-
+Once the MVP is functional these enhancements to improve its capabilities and accuracy.
 Potential Upgrades:
-
     Add more data sources (Reddit, SEC filings)
     Use Named Entity Recognition (NER) for accuracy
     Implement an automated alerting system
     Backtest sentiment against historical prices
-
 
 
